@@ -20,7 +20,7 @@
 
 ### 1) 단어, 형태소, 품사, 형태소/품사 추출
 
-![](M:\PAPERS\IJHR2018\Code\kkma_python\img\io.PNG)
+![](https://github.com/YuJungChae/kkma_python/blob/master/img/io.PNG)
 
 
 
