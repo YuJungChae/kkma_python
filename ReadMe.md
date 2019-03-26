@@ -2,9 +2,9 @@
 
 꼬꼬마 형태소 분석기는 서울대학교 IDS 연구실에서 개발한 것으로, 입력된 문장에 대한 형태소, 품사, 관계 정보 분석하는 Java 라이브러리(org.snu.ids.ha.jar)로 배포됨 [1]. 아래의 그림은 kkma 홈페이지에서 확인 할 수 있는 입력문장 "오늘은 날씨가 참좋네."에 대한 출력 예시를 나타낸다.
 
-![](M:\PAPERS\IJHR2018\Code\kkma_python\img\kkma2.PNG)
+![](https://github.com/YuJungChae/kkma_python/blob/master/img/kkma2.PNG)
 
-![](M:\PAPERS\IJHR2018\Code\kkma_python\img\kkma.PNG)
+![](https://github.com/YuJungChae/kkma_python/blob/master/img/\kkma.PNG)
 
 [1]: http://kkma.snu.ac.kr/	"KKMA"
 
@@ -26,7 +26,7 @@
 
 ###2) 단어, 관계 추출
 
-![](M:\PAPERS\IJHR2018\Code\kkma_python\img\io2.PNG)
+![](https://github.com/YuJungChae/kkma_python/blob/master/img/io2.PNG)
 
 
 
