@@ -41,12 +41,6 @@ class kkma(object):
             mp_list.append(mps)
         return word_list, morphs_list, poses_list, mp_list
 
-    def __analysis__(self, sentence):
-        analysis = self.analyzer.analyze(sentence)
-        process = self.analyzer.postProcess(analysis)
-        result = self.analyzer.leaveJustBest(process)
-        return self.analyzer.divideToSentences(result)[self.BEST]
-
     def relation(self, sentence):
         word_list, relation_list =[], []
         self.sentence = self.__analysis__(sentence)
@@ -57,6 +51,12 @@ class kkma(object):
                     word_list.append(self.sentence.get(idx_word).getExp())
                     relation_list.append(self.tree.getEdgeList().get(idx_edge).getRelation())
         return word_list, relation_list
+
+    def __analysis__(self, sentence):
+        analysis = self.analyzer.analyze(sentence)
+        process = self.analyzer.postProcess(analysis)
+        result = self.analyzer.leaveJustBest(process)
+        return self.analyzer.divideToSentences(result)[self.BEST]
 
 
 if __name__ == '__main__':
