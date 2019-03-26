@@ -15,15 +15,15 @@
 
 
 
-## 프로그램 입출력 예시
+# 프로그램 입출력 예시
 
-### 1) 단어, 형태소, 품사, 형태소/품사 추출
+## 1) 단어, 형태소, 품사, 형태소/품사 추출
 
 ![](https://github.com/YuJungChae/kkma_python/blob/master/img/io.PNG)
 
 
 
-### 2) 단어, 관계 추출
+## 2) 단어, 관계 추출
 
 ![](https://github.com/YuJungChae/kkma_python/blob/master/img/io2.PNG)
 
