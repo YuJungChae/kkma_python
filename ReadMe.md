@@ -24,7 +24,7 @@
 
 
 
-###2) 단어, 관계 추출
+### 2) 단어, 관계 추출
 
 ![](https://github.com/YuJungChae/kkma_python/blob/master/img/io2.PNG)
 
