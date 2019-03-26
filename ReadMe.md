@@ -4,7 +4,7 @@
 
 ![](https://github.com/YuJungChae/kkma_python/blob/master/img/kkma2.PNG)
 
-![](https://github.com/YuJungChae/kkma_python/blob/master/img/\kkma.PNG)
+![](https://github.com/YuJungChae/kkma_python/blob/master/img/kkma.PNG)
 
 [1]: http://kkma.snu.ac.kr/	"KKMA"
 
