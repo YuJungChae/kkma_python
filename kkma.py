@@ -4,7 +4,7 @@ from konlpy.tag import Kkma
 
 class kkma(object):
 
-    BEST, MORP, POS = 0, 0, 1
+    MORP, POS = 0, 1
 
     def __init__(self, jar_path):
         kkma = Kkma()
@@ -26,37 +26,40 @@ class kkma(object):
 
     def word_info(self, sentence):
         word_list, morphs_list, poses_list, mp_list = [], [], [], []
-        results = self.__analysis__(sentence)
-        for word_info in results:
-            word_list.append(word_info.getExp())
-            morphs, poses, mps = [], [], []
-            for morph_info in word_info:
-                mp = morph_info.getSmplStr()
-                segments = mp.split('/')
-                morphs.append(segments[self.MORP])
-                poses.append(segments[self.POS])
-                mps.append(mp)
-            morphs_list.append(morphs)
-            poses_list.append(poses)
-            mp_list.append(mps)
+        sentences = self.__analysis__(sentence)
+        for sentence in sentences:
+            for word_info in sentence:
+                word_list.append(word_info.getExp())
+                morphs, poses, mps = [], [], []
+                for morph_info in word_info:
+                    mp = morph_info.getSmplStr()
+                    segments = mp.split('/')
+                    morphs.append(segments[self.MORP])
+                    poses.append(segments[self.POS])
+                    mps.append(mp)
+                morphs_list.append(morphs)
+                poses_list.append(poses)
+                mp_list.append(mps)
         return word_list, morphs_list, poses_list, mp_list
 
     def relation(self, sentence):
         word_list, relation_list =[], []
-        self.sentence = self.__analysis__(sentence)
-        self.tree = self.parser.parse(self.sentence)
-        for idx_word in range(0, self.sentence.size()):
-            for idx_edge in range(0, self.tree.getEdgeList().size()):
-                if self.tree.getEdgeList().get(idx_edge).getChildNode().getEojeol().getExp() == self.sentence.get(idx_word).getExp():
-                    word_list.append(self.sentence.get(idx_word).getExp())
-                    relation_list.append(self.tree.getEdgeList().get(idx_edge).getRelation())
+        sentences = self.__analysis__(sentence)
+        for sentence in sentences:
+            self.sentence = sentence
+            self.tree = self.parser.parse(self.sentence)
+            for idx_word in range(0, self.sentence.size()):
+                for idx_edge in range(0, self.tree.getEdgeList().size()):
+                    if self.tree.getEdgeList().get(idx_edge).getChildNode().getEojeol().getExp() == self.sentence.get(idx_word).getExp():
+                        word_list.append(self.sentence.get(idx_word).getExp())
+                        relation_list.append(self.tree.getEdgeList().get(idx_edge).getRelation())
         return word_list, relation_list
 
     def __analysis__(self, sentence):
         analysis = self.analyzer.analyze(sentence)
         process = self.analyzer.postProcess(analysis)
         result = self.analyzer.leaveJustBest(process)
-        return self.analyzer.divideToSentences(result)[self.BEST]
+        return self.analyzer.divideToSentences(result)
 
 
 if __name__ == '__main__':
